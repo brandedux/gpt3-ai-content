@@ -12,7 +12,7 @@ const openai = new OpenAIApi(configuration);
 // Base Prompt for the textbox
 const basePromptPrefix =
 `
-Write me a detailed table of contents for a blog post with the title below.
+Write me a detailed outline for a cover letter with the job title below.
 
 Title:
 `
@@ -32,13 +32,13 @@ const generateAction = async (req, res) => {
   // I build Prompt #2.
   const secondPrompt = 
   `
-  Take the table of contents and title of the blog post below and generate a blog post written in thwe style of Paul Graham. Make it feel like a story. Don't just list the points. Go deep into each one. Explain why.
+  Take the outline and job title of the cover letter below and generate a cover letter written in a persuesive style. Make it feel like a story. Don't just list the points. Go deep into each one. Provide meaning.
 
-  Title: ${req.body.userInput}
+  Job Title: ${req.body.userInput}
 
-  Table of Contents: ${basePromptOutput.text}
+  Outline: ${basePromptOutput.text}
 
-  Blog Post:
+  Cover Letter:
   `
   
   // I call the OpenAI API a second time with Prompt #2
