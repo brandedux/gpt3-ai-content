@@ -3,14 +3,16 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Manrope', sans-serif;
+    font-family: sans-serif;
+
+    background: linear-gradient(0deg,#0d0823 1%,#0d0823 33%,#0f0f19);
+
 }
 
 .root {
     display: flex;
     place-content: center flex-start;
     align-items: center;
-    background: linear-gradient(0deg,#0d0823 1%,#0d0823 33%,#0f0f19);
     flex-flow: column nowrap;
     gap: 10px;
     height: 100vh;
@@ -39,22 +41,79 @@ body {
     flex-direction: column;
     width: 100%;
     align-items: center;
-    color: #FFF
+    color: #FFF;
+}
+
+.openai {
+    height: 100px;
+    width: 100px;
+    background: url('../assets/openai.png');
+    background-size: cover;
+}
+/*
+@keyframes spin {
+    from {
+        transform:rotate(3600deg);
+    }
+    to {
+        transform:rotate(-3600deg);
+    }
+}
+*/
+.ascii {
+    display: block;
+    font-size: 1px;
+    font-family: monospace;
+    letter-spacing: 0.4px;
+    white-space: pre;
+    color: linear-gradient(0deg,#0d0823 1%,#0d0823 33%,#0f0f19);
+    -webkit-animation: color_change 10s infinite alternate;
+	-moz-animation: color_change 10s infinite alternate;
+	-ms-animation: color_change 10s infinite alternate;
+	-o-animation: color_change 10s infinite alternate;
+	animation: color_change 10s infinite alternate;
+}
+
+@-webkit-keyframes color_change {
+	from { color: #ff7dff; }
+	to { color: #fff; }
+}
+@-moz-keyframes color_change {
+	from { color: #ff7dff; }
+	to { color: #fff; }
+}
+@-ms-keyframes color_change {
+	from { color: #ff7dff; }
+	to { color: #fff; }
+}
+@-o-keyframes color_change {
+	from { color: #ff7dff; }
+	to { color: #fff; }
+}
+@keyframes color_change {
+	from { color: #ff7dff; }
+	to { color: #fff; }
+}
+
+.spin {
+  display: none;
+  animation-name: spin;
+  animation-duration: 9000ms;
+  animation-iteration-count: infinite;
+
+  animation-timing-function: ease-in-out; 
+  
+  transform: rotate(3deg);
+  transform: rotate(0.3rad);
+  transform: rotate(3grad); 
+  transform: rotate(.03turn);
 }
 
 .header-title {
-    display: flex;
-    gap: 12px;
-}
-
-.header-title {
+    text-align: center;
     width: 100%;
     font-weight: 700;
-    font-size: 72px;
-    letter-spacing: -4px;
-    line-height: 1.2em;
-    text-align: center;
-    margin: 0;
+    margin: 10px 0 0;
 }
 
 .header-subtitle{
@@ -85,12 +144,14 @@ p {
 }
 
 .prompt-box {
-    border-bottom-width: 1px;
+    /*border-bottom-width: 1px;
     border-color: rgba(255, 255, 255, 0.1);
     border-left-width: 1px;
     border-right-width: 1px;
     border-style: solid;
     border-top-width: 1px;
+    */
+    border: none;
     place-content: flex-start;
     align-items: flex-start;
     background-color: rgba(255, 255, 255, 0.05);
@@ -123,7 +184,7 @@ textarea {
 }
 
 .prompt-box:focus {
-    border-color:rgba(255, 255, 255, 0.75)
+   /*border-color:rgba(255, 255, 255, 0.75) */
 }
 
 #prompt-buttons {
@@ -156,7 +217,7 @@ textarea {
     height: auto;
     position: relative;
     white-space: pre;
-    width: auto;
+    width:autos;
 }
 
 .or {
@@ -227,11 +288,6 @@ textarea {
   border-top-color: transparent;
   animation: spinner .6s linear infinite;
 }
-
-
-
-
-
 
 .loading {
     opacity: 0.7;
